@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>HandsUp!</title>
+    <script type="text/javascript" src="scripts/jscolor.js"></script>
+    <script type="text/javascript" src="scripts/options.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/options.css">
+  </head>
+  <body>
+    <div class="center" id="handContainer">
+        <i class="fa fa-hand-paper-o" id="hand"></i>
+    </div>
+    <div class="center">
+  	   <div id="foregroundContainer">
+            <input class="jscolor {onFineChange:'updateForeground(this)', valueElement:null}" id="foregroundColor"></input>
+       </div>
+       <div id="backgroundContainer">
+            <input class="jscolor {onFineChange:'updateBackground(this)', valueElement:null}" id="backgroundColor"></input>
+       </div>
+   </div>
+  </body>
+</html>
