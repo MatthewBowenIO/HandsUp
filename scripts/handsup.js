@@ -28,6 +28,8 @@ function load() {
 		handColor = results.handColor;
 		handContainerColor = results.handContainerColor;
 
+		setWidthAndHeight();
+
 		document.getElementById('hand').style.color = handColor;
 		document.body.style.backgroundColor = handContainerColor;
 		document.getElementById('foregroundColor').style.backgroundColor = handColor;
@@ -53,6 +55,16 @@ function saveChanges() {
 	chrome.storage.local.set({'handColor': handColor, 'handContainerColor': handContainerColor}, function() {
 		window.console.log('Settings saved');
 	});
+}
+
+function setWidthAndHeight() {
+	var width = screen.width;
+	var scaledWidth = 20 / 100 * width;
+	var scaledHeight = scaledWidth - (30 / 100 * scaledWidth);
+
+	document.body.style.width = scaledWidth + 'px';
+	document.body.style.height = scaledHeight + 'px';
+	document.getElementById('hand').style.fontSize = scaledHeight + 'px'
 }
 
 load();
