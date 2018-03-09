@@ -30,8 +30,28 @@ function load() {
 
 		document.getElementById('hand').style.color = handColor;
 		document.body.style.backgroundColor = handContainerColor;
+		document.getElementById('foregroundColor').style.backgroundColor = handColor;
+		document.getElementById('backgroundColor').style.backgroundColor = handContainerColor;
 
 		startFlash();
+	});
+}
+
+function updateForeground(jscolor) {
+	handColor = '#' + jscolor;
+	document.getElementById('hand').style.color = handColor;
+	saveChanges();
+}
+
+function updateBackground(jscolor) {
+	handContainerColor = '#' + jscolor;
+	document.body.style.backgroundColor = handContainerColor;
+	saveChanges();
+} 
+
+function saveChanges() {
+	chrome.storage.local.set({'handColor': handColor, 'handContainerColor': handContainerColor}, function() {
+		window.console.log('Settings saved');
 	});
 }
 
